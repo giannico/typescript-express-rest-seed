@@ -1,0 +1,223 @@
+{
+	"variables": [],
+	"info": {
+		"name": "/api/users",
+		"_postman_id": "d7727167-fa20-eb94-1baf-aba9dc34879b",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "_Success",
+			"description": "",
+			"item": [
+				{
+					"name": "GET /api/users",
+					"request": {
+						"url": "http://localhost:3000/api/users",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "GET /api/users/1",
+					"request": {
+						"url": "http://localhost:3000/api/users/1",
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "POST /api/users",
+					"request": {
+						"url": "http://localhost:3000/api/users",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"firstName\": \"Andrew\",\n\t\"lastName\": \"Smithw\",\n\t\"email\": \"asmith@gmail.com\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "PATCH /api/users/1",
+					"request": {
+						"url": "http://localhost:3000/api/users/1",
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"firstName\": \"Andrew\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE /api/users/1",
+					"request": {
+						"url": "http://localhost:3000/api/users/1",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"firstName\": \"Andrew\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "__Failure",
+			"description": "",
+			"item": [
+				{
+					"name": "POST /api/bleh (INVALID_RESOURCE_URL)",
+					"request": {
+						"url": "http://localhost:3000/api/bleh",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "POST /api/users/1 (BAD_METHOD)",
+					"request": {
+						"url": "http://localhost:3000/api/users/1",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "POST /api/users (VALIDATION_FAILURE)",
+					"request": {
+						"url": "http://localhost:3000/api/users",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"firstName\": \"Andre\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "PATCH /api/users (VALIDATION_FAILURE)",
+					"request": {
+						"url": "http://localhost:3000/api/users/1",
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"firstName\": \"A\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "POST /api/users (BLACKLISTED_EMAIL)",
+					"request": {
+						"url": "http://localhost:3000/api/users",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"firstName\": \"Andre\",\n\t\"lastName\": \"Giannico\",\n\t\"email\": \"andre@andregiannico.com\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

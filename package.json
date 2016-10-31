@@ -1,0 +1,60 @@
+{
+  "name": "typescript-express-rest-seed",
+  "version": "0.0.1",
+  "description": "An express REST API seed written in TypeScript.",
+  "main": "src/app/app.ts",
+  "scripts": {
+    "clean": "rimraf build",
+    "prebuild": "npm run clean",
+    "build": "tsc",
+    "prestart": "npm run build",
+    "start": "node ./build/app/app.js",
+    "predev": "npm run clean",
+    "dev": "concurrently \"npm run tsc-watch\" \"npm run nodemon\"",
+    "prenodemon": "wait-on ./build/app/app.js",
+    "nodemon": "nodemon -r dotenv/config --delay 1500ms --watch dev.env --watch ./build \"./build/app/app.js\" dotenv_config_path=dev.env",
+    "tsc-watch": "tsc -w",
+    "lint": "tslint -c tslint.json \"./src/**/*.ts\""
+  },
+  "author": "Andre Giannico <andre@andregiannico.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/giannico/typescript-express-rest-seed.git"
+  },
+  "keywords": [
+    "express",
+    "typescript",
+    "rest",
+    "api",
+    "types"
+  ],
+  "engines": {
+    "node": "6.x",
+    "npm": "3.x"
+  },
+  "dependencies": {
+    "body-parser": "1.15.2",
+    "core-js": "2.4.1",
+    "express": "4.14.0",
+    "morgan": "1.7.0",
+    "serialize-error": "2.0.0",
+    "validate.js": "0.10.0",
+    "winston": "2.2.0"
+  },
+  "devDependencies": {
+    "@types/body-parser": "0.0.33",
+    "@types/core-js": "0.9.34",
+    "@types/express": "4.0.33",
+    "@types/morgan": "1.7.32",
+    "@types/validator": "5.7.34",
+    "@types/winston": "0.0.28",
+    "concurrently": "3.1.0",
+    "dotenv": "2.0.0",
+    "nodemon": "1.11.0",
+    "rimraf": "2.5.4",
+    "tslint": "3.15.1",
+    "typescript": "2.0.3",
+    "wait-on": "1.5.3"
+  }
+}

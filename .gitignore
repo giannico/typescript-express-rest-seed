@@ -1,0 +1,24 @@
+# OS
+# ======================
+.DS_Store
+Thumbs.db
+
+# Dependencies
+# ======================
+node_modules/
+typings/
+
+# General
+# ======================
+.tmp/
+dist/
+build/
+*.log
+*.csv
+*.dat
+*.out
+*.pid
+*.gz
+*.tmp
+*.bak
+*.swp
