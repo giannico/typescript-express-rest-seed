@@ -4,6 +4,7 @@ export class AppConfig {
   // required environment variables
   port: number;
   logLevel: string; // 'debug' | 'verbose' | 'info' | 'warn' | 'error';
+  serveStatic: boolean;
 
   // optional environment variables
   enableHttpRequestLogging: boolean;
@@ -12,6 +13,7 @@ export class AppConfig {
     // required environment variables
     this.port = this.getIntegerEnvVar('PORT');
     this.logLevel = this.getStringEnvVar('LOG_LEVEL');
+    this.serveStatic = this.getBooleanEnvVar('SERVE_STATIC');
 
     // optional environment variables
     this.enableHttpRequestLogging = this.getBooleanEnvVar('ENABLE_HTTP_REQUEST_LOGGING', false);

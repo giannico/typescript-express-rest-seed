@@ -3,8 +3,11 @@ import { AppConfig } from './config';
 import express = require('express');
 import bodyParser = require('body-parser');
 import morgan = require('morgan');
+import { Logger, LoggerFactory } from './common';
 
 export class ExpressAppFactory {
+
+  private static readonly LOGGER: Logger = LoggerFactory.getLogger();
 
   private constructor() {}
 
@@ -19,7 +22,13 @@ export class ExpressAppFactory {
     app.use(bodyParser.urlencoded({ extended: true }));
     app.use(bodyParser.json());
 
+    if (appConfig.serveStatic) {
+      ExpressAppFactory.LOGGER.info(`Serving static files from public`);
+      app.use(express.static('public'));
+    }
+
     if (appConfig.enableHttpRequestLogging) {
+      ExpressAppFactory.LOGGER.info(`Request logging is enabled`);
       app.use(morgan('combined'));
     }
 
